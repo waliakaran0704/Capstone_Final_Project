@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CapstoneFinal20180412084401_dbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="CapstoneFinal20180412084401_dbModelStoreContainer">
+    <EntitySet Name="Addresses" EntityType="CapstoneFinal20180412084401_dbModel.Store.Addresses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Admins" EntityType="CapstoneFinal20180412084401_dbModel.Store.Admins" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CastingDirectors" EntityType="CapstoneFinal20180412084401_dbModel.Store.CastingDirectors" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FamilyMembers" EntityType="CapstoneFinal20180412084401_dbModel.Store.FamilyMembers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Logins" EntityType="CapstoneFinal20180412084401_dbModel.Store.Logins" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Talents" EntityType="CapstoneFinal20180412084401_dbModel.Store.Talents" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FamilyMemberAddress" EntityType="CapstoneFinal20180412084401_dbModel.Store.FamilyMemberAddress" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TalentAddress" EntityType="CapstoneFinal20180412084401_dbModel.Store.TalentAddress" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_AdminCastingDirector" Association="CapstoneFinal20180412084401_dbModel.Store.FK_AdminCastingDirector">
+      <End Role="Admins" EntitySet="Admins" />
+      <End Role="CastingDirectors" EntitySet="CastingDirectors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoginAdmin" Association="CapstoneFinal20180412084401_dbModel.Store.FK_LoginAdmin">
+      <End Role="Logins" EntitySet="Logins" />
+      <End Role="Admins" EntitySet="Admins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoginCastingDirector" Association="CapstoneFinal20180412084401_dbModel.Store.FK_LoginCastingDirector">
+      <End Role="Logins" EntitySet="Logins" />
+      <End Role="CastingDirectors" EntitySet="CastingDirectors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoginTalent" Association="CapstoneFinal20180412084401_dbModel.Store.FK_LoginTalent">
+      <End Role="Logins" EntitySet="Logins" />
+      <End Role="Talents" EntitySet="Talents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FamilyMemberAddress_Addresses" Association="CapstoneFinal20180412084401_dbModel.Store.FK_FamilyMemberAddress_Addresses">
+      <End Role="Addresses" EntitySet="Addresses" />
+      <End Role="FamilyMemberAddress" EntitySet="FamilyMemberAddress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FamilyMemberAddress_FamilyMembers" Association="CapstoneFinal20180412084401_dbModel.Store.FK_FamilyMemberAddress_FamilyMembers">
+      <End Role="FamilyMembers" EntitySet="FamilyMembers" />
+      <End Role="FamilyMemberAddress" EntitySet="FamilyMemberAddress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TalentAddress_Addresses" Association="CapstoneFinal20180412084401_dbModel.Store.FK_TalentAddress_Addresses">
+      <End Role="Addresses" EntitySet="Addresses" />
+      <End Role="TalentAddress" EntitySet="TalentAddress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TalentAddress_Talents" Association="CapstoneFinal20180412084401_dbModel.Store.FK_TalentAddress_Talents">
+      <End Role="Talents" EntitySet="Talents" />
+      <End Role="TalentAddress" EntitySet="TalentAddress" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Addresses">
+    <Key>
+      <PropertyRef Name="PKAddress_ID" />
+    </Key>
+    <Property Name="PKAddress_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MailingAddress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HomeAddress" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Admins">
+    <Key>
+      <PropertyRef Name="PKAmin_ID" />
+    </Key>
+    <Property Name="PKAmin_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoginLogin_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CastingDirectors">
+    <Key>
+      <PropertyRef Name="PKCD_ID" />
+    </Key>
+    <Property Name="PKCD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdminPKAmin_ID" Type="int" Nullable="false" />
+    <Property Name="LoginLogin_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FamilyMembers">
+    <Key>
+      <PropertyRef Name="PK_FM_ID" />
+    </Key>
+    <Property Name="PK_FM_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HomePhoneNum" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CellPhoneNum" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BirthDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Weight" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Height" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EyeColor" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HairColor" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UnionStatus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SIN" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EthinicOriginPK_EO_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Logins">
+    <Key>
+      <PropertyRef Name="Login_ID" />
+    </Key>
+    <Property Name="Login_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ConfirmPassword" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Talents">
+    <Key>
+      <PropertyRef Name="PKTalent_ID" />
+    </Key>
+    <Property Name="PKTalent_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HomePhoneNum" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CellPhoneNum" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BirthDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Weight" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Height" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EyeColor" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HairColor" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UnionStatus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SIN" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LoginLogin_ID" Type="int" Nullable="false" />
+    <Property Name="NumOfRequest" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NumOfHired" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EthinicOrigin" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CarMake" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CarModel" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CarYear" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CarColor" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FamilyMemberAddress">
+    <Key>
+      <PropertyRef Name="Addresses_PKAddress_ID" />
+      <PropertyRef Name="FamilyMembers_PK_FM_ID" />
+    </Key>
+    <Property Name="Addresses_PKAddress_ID" Type="int" Nullable="false" />
+    <Property Name="FamilyMembers_PK_FM_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TalentAddress">
+    <Key>
+      <PropertyRef Name="Addresses_PKAddress_ID" />
+      <PropertyRef Name="Talents_PKTalent_ID" />
+    </Key>
+    <Property Name="Addresses_PKAddress_ID" Type="int" Nullable="false" />
+    <Property Name="Talents_PKTalent_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AdminCastingDirector">
+    <End Role="Admins" Type="CapstoneFinal20180412084401_dbModel.Store.Admins" Multiplicity="1" />
+    <End Role="CastingDirectors" Type="CapstoneFinal20180412084401_dbModel.Store.CastingDirectors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admins">
+        <PropertyRef Name="PKAmin_ID" />
+      </Principal>
+      <Dependent Role="CastingDirectors">
+        <PropertyRef Name="AdminPKAmin_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LoginAdmin">
+    <End Role="Logins" Type="CapstoneFinal20180412084401_dbModel.Store.Logins" Multiplicity="1" />
+    <End Role="Admins" Type="CapstoneFinal20180412084401_dbModel.Store.Admins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logins">
+        <PropertyRef Name="Login_ID" />
+      </Principal>
+      <Dependent Role="Admins">
+        <PropertyRef Name="LoginLogin_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LoginCastingDirector">
+    <End Role="Logins" Type="CapstoneFinal20180412084401_dbModel.Store.Logins" Multiplicity="1" />
+    <End Role="CastingDirectors" Type="CapstoneFinal20180412084401_dbModel.Store.CastingDirectors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logins">
+        <PropertyRef Name="Login_ID" />
+      </Principal>
+      <Dependent Role="CastingDirectors">
+        <PropertyRef Name="LoginLogin_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LoginTalent">
+    <End Role="Logins" Type="CapstoneFinal20180412084401_dbModel.Store.Logins" Multiplicity="1" />
+    <End Role="Talents" Type="CapstoneFinal20180412084401_dbModel.Store.Talents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logins">
+        <PropertyRef Name="Login_ID" />
+      </Principal>
+      <Dependent Role="Talents">
+        <PropertyRef Name="LoginLogin_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FamilyMemberAddress_Addresses">
+    <End Role="Addresses" Type="CapstoneFinal20180412084401_dbModel.Store.Addresses" Multiplicity="1" />
+    <End Role="FamilyMemberAddress" Type="CapstoneFinal20180412084401_dbModel.Store.FamilyMemberAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Addresses">
+        <PropertyRef Name="PKAddress_ID" />
+      </Principal>
+      <Dependent Role="FamilyMemberAddress">
+        <PropertyRef Name="Addresses_PKAddress_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FamilyMemberAddress_FamilyMembers">
+    <End Role="FamilyMemberAddress" Type="CapstoneFinal20180412084401_dbModel.Store.FamilyMemberAddress" Multiplicity="*" />
+    <End Role="FamilyMembers" Type="CapstoneFinal20180412084401_dbModel.Store.FamilyMembers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="FamilyMembers">
+        <PropertyRef Name="PK_FM_ID" />
+      </Principal>
+      <Dependent Role="FamilyMemberAddress">
+        <PropertyRef Name="FamilyMembers_PK_FM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TalentAddress_Addresses">
+    <End Role="Addresses" Type="CapstoneFinal20180412084401_dbModel.Store.Addresses" Multiplicity="1" />
+    <End Role="TalentAddress" Type="CapstoneFinal20180412084401_dbModel.Store.TalentAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Addresses">
+        <PropertyRef Name="PKAddress_ID" />
+      </Principal>
+      <Dependent Role="TalentAddress">
+        <PropertyRef Name="Addresses_PKAddress_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TalentAddress_Talents">
+    <End Role="TalentAddress" Type="CapstoneFinal20180412084401_dbModel.Store.TalentAddress" Multiplicity="*" />
+    <End Role="Talents" Type="CapstoneFinal20180412084401_dbModel.Store.Talents" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Talents">
+        <PropertyRef Name="PKTalent_ID" />
+      </Principal>
+      <Dependent Role="TalentAddress">
+        <PropertyRef Name="Talents_PKTalent_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

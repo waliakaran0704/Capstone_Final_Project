@@ -1,0 +1,192 @@
+﻿@*<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background-image: url(https://media.gettyimages.com/photos/white-wood-panel-texture-background-picture-id586058260?b=1&k=6&m=586058260&s=612x612&w=0&h=5rbEI_0b6Cw3ax6pS7W0shds5HN2gXbsKHx6IVJ6f1o=);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        </style>
+        <title>Bon.ker Casting</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+
+                    <div class="container">
+                        <div class="navbar-header">
+
+                            @Html.ActionLink("Bon.ker Casting", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+
+                            <img src="~/Images/ABC.PNG" alt="Sample Photo" height="50" />
+                        </div>
+
+                        <div class="navbar-collapse collapse">
+
+                            <ul class="nav navbar-nav">
+
+                                <li>@Html.ActionLink("Login", "Login", "Home")</li>
+                                <li>@Html.ActionLink("Register", "Register", "Home")</li>
+                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                            </ul>
+                        </div>
+                    </div>
+        </div>
+        <div id="sidebar">
+            @RenderSection("Sidebar", required: false)
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <section id="footer">
+                <div class="container">
+                    <div class="row text-center text-xs-center text-sm-left text-md-left">
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <h5>Quick links</h5>
+                            <ul class="list-unstyled quick-links">
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <h5>Quick links</h5>
+                            <ul class="list-unstyled quick-links">
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <h5>Quick links</h5>
+                            <ul class="list-unstyled quick-links">
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                                <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+                                <li><a href="https://wwwe.sunlimetech.com" title="Design and developed by"><i class="fa fa-angle-double-right"></i>Imprint</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                            <ul class="list-unstyled list-inline social text-center">
+                                <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
+                                <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
+                                <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
+                                <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
+                                <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                            </ul>
+                        </div>
+                        </hr>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                            <p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
+                            <p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">Sunlimetech</a></p>
+                        </div>
+                        </hr>
+                    </div>
+                </div>
+            </section>
+            <div class="footer-copyright text-center py-3">
+                © 2018 Copyright:
+                <p>Mandy Kerefoot</p>
+            </div>
+        </div>
+
+                    @Scripts.Render("~/bundles/jquery")
+                    @Scripts.Render("~/bundles/bootstrap")
+                    @RenderSection("scripts", required: false)
+    </body>
+    </html>*@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="@Url.Content("~/Css.css")" rel="stylesheet" type="text/css" />
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <title>Bon.ker Casting</title>
+
+</head>
+<body>
+
+    <hr />
+    <h1 style="color:#375F1B; text-align:center; font-size:70px; "><img src="~/Images/Company_Logo.png" height="70px" width="70px" border="1px">Bon. ker Casting</h1>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                @*<div class="navbar-header">
+                        <a class="navbar-brand" href="#">Logo</a>
+                    </div>*@
+                <div class="navbar-collapse collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="@Url.Action("Login","Home")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div id="sidebar">
+        @RenderSection("Sidebar", required: false)
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        @*<footer>
+                <p>&copy; Mandy Kerfoot</p>
+            </footer>*@
+    </div>
+    <section id="footer">
+        <div class="container">
+            <div class="row text-center text-xs-center text-sm-left text-md-left">
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                    <ul class="list-unstyled list-inline social text-center">
+                        <li class="list-inline-item"><a href="javascript:void();"><i style="color:blue; font-size:25px" class="fa fa-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i style="color:lightblue; font-size:25px" class="fa fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i style="color:lightpink; font-size:25px" class="fa fa-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i style="color:red; font-size:25px" class="fa fa-google-plus"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i style="color:lightblue; font-size:25px" class="fa fa-envelope"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                    <p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
+                    <p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">Sunlimetech</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

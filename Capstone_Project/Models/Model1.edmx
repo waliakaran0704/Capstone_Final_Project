@@ -1,0 +1,553 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CapstoneFinal20180412084401_dbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="CapstoneFinal20180412084401_dbModelStoreContainer">
+    <EntitySet Name="Addresses" EntityType="CapstoneFinal20180412084401_dbModel.Store.Addresses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Admins" EntityType="CapstoneFinal20180412084401_dbModel.Store.Admins" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CastingDirectors" EntityType="CapstoneFinal20180412084401_dbModel.Store.CastingDirectors" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FamilyMembers" EntityType="CapstoneFinal20180412084401_dbModel.Store.FamilyMembers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Logins" EntityType="CapstoneFinal20180412084401_dbModel.Store.Logins" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Talents" EntityType="CapstoneFinal20180412084401_dbModel.Store.Talents" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FamilyMemberAddress" EntityType="CapstoneFinal20180412084401_dbModel.Store.FamilyMemberAddress" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TalentAddress" EntityType="CapstoneFinal20180412084401_dbModel.Store.TalentAddress" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_AdminCastingDirector" Association="CapstoneFinal20180412084401_dbModel.Store.FK_AdminCastingDirector">
+      <End Role="Admins" EntitySet="Admins" />
+      <End Role="CastingDirectors" EntitySet="CastingDirectors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoginAdmin" Association="CapstoneFinal20180412084401_dbModel.Store.FK_LoginAdmin">
+      <End Role="Logins" EntitySet="Logins" />
+      <End Role="Admins" EntitySet="Admins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoginCastingDirector" Association="CapstoneFinal20180412084401_dbModel.Store.FK_LoginCastingDirector">
+      <End Role="Logins" EntitySet="Logins" />
+      <End Role="CastingDirectors" EntitySet="CastingDirectors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoginTalent" Association="CapstoneFinal20180412084401_dbModel.Store.FK_LoginTalent">
+      <End Role="Logins" EntitySet="Logins" />
+      <End Role="Talents" EntitySet="Talents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FamilyMemberAddress_Addresses" Association="CapstoneFinal20180412084401_dbModel.Store.FK_FamilyMemberAddress_Addresses">
+      <End Role="Addresses" EntitySet="Addresses" />
+      <End Role="FamilyMemberAddress" EntitySet="FamilyMemberAddress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FamilyMemberAddress_FamilyMembers" Association="CapstoneFinal20180412084401_dbModel.Store.FK_FamilyMemberAddress_FamilyMembers">
+      <End Role="FamilyMembers" EntitySet="FamilyMembers" />
+      <End Role="FamilyMemberAddress" EntitySet="FamilyMemberAddress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TalentAddress_Addresses" Association="CapstoneFinal20180412084401_dbModel.Store.FK_TalentAddress_Addresses">
+      <End Role="Addresses" EntitySet="Addresses" />
+      <End Role="TalentAddress" EntitySet="TalentAddress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TalentAddress_Talents" Association="CapstoneFinal20180412084401_dbModel.Store.FK_TalentAddress_Talents">
+      <End Role="Talents" EntitySet="Talents" />
+      <End Role="TalentAddress" EntitySet="TalentAddress" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Addresses">
+    <Key>
+      <PropertyRef Name="PKAddress_ID" />
+    </Key>
+    <Property Name="PKAddress_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MailingAddress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HomeAddress" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Admins">
+    <Key>
+      <PropertyRef Name="PKAmin_ID" />
+    </Key>
+    <Property Name="PKAmin_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoginLogin_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CastingDirectors">
+    <Key>
+      <PropertyRef Name="PKCD_ID" />
+    </Key>
+    <Property Name="PKCD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdminPKAmin_ID" Type="int" Nullable="false" />
+    <Property Name="LoginLogin_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FamilyMembers">
+    <Key>
+      <PropertyRef Name="PK_FM_ID" />
+    </Key>
+    <Property Name="PK_FM_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HomePhoneNum" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CellPhoneNum" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BirthDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Weight" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Height" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EyeColor" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HairColor" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UnionStatus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SIN" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EthinicOriginPK_EO_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Logins">
+    <Key>
+      <PropertyRef Name="Login_ID" />
+    </Key>
+    <Property Name="Login_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ConfirmPassword" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Talents">
+    <Key>
+      <PropertyRef Name="PKTalent_ID" />
+    </Key>
+    <Property Name="PKTalent_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HomePhoneNum" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CellPhoneNum" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BirthDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Weight" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Height" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EyeColor" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HairColor" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UnionStatus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SIN" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LoginLogin_ID" Type="int" Nullable="false" />
+    <Property Name="NumOfRequest" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NumOfHired" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EthinicOrigin" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CarMake" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CarModel" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CarYear" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CarColor" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FamilyMemberAddress">
+    <Key>
+      <PropertyRef Name="Addresses_PKAddress_ID" />
+      <PropertyRef Name="FamilyMembers_PK_FM_ID" />
+    </Key>
+    <Property Name="Addresses_PKAddress_ID" Type="int" Nullable="false" />
+    <Property Name="FamilyMembers_PK_FM_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TalentAddress">
+    <Key>
+      <PropertyRef Name="Addresses_PKAddress_ID" />
+      <PropertyRef Name="Talents_PKTalent_ID" />
+    </Key>
+    <Property Name="Addresses_PKAddress_ID" Type="int" Nullable="false" />
+    <Property Name="Talents_PKTalent_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AdminCastingDirector">
+    <End Role="Admins" Type="CapstoneFinal20180412084401_dbModel.Store.Admins" Multiplicity="1" />
+    <End Role="CastingDirectors" Type="CapstoneFinal20180412084401_dbModel.Store.CastingDirectors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admins">
+        <PropertyRef Name="PKAmin_ID" />
+      </Principal>
+      <Dependent Role="CastingDirectors">
+        <PropertyRef Name="AdminPKAmin_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LoginAdmin">
+    <End Role="Logins" Type="CapstoneFinal20180412084401_dbModel.Store.Logins" Multiplicity="1" />
+    <End Role="Admins" Type="CapstoneFinal20180412084401_dbModel.Store.Admins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logins">
+        <PropertyRef Name="Login_ID" />
+      </Principal>
+      <Dependent Role="Admins">
+        <PropertyRef Name="LoginLogin_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LoginCastingDirector">
+    <End Role="Logins" Type="CapstoneFinal20180412084401_dbModel.Store.Logins" Multiplicity="1" />
+    <End Role="CastingDirectors" Type="CapstoneFinal20180412084401_dbModel.Store.CastingDirectors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logins">
+        <PropertyRef Name="Login_ID" />
+      </Principal>
+      <Dependent Role="CastingDirectors">
+        <PropertyRef Name="LoginLogin_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LoginTalent">
+    <End Role="Logins" Type="CapstoneFinal20180412084401_dbModel.Store.Logins" Multiplicity="1" />
+    <End Role="Talents" Type="CapstoneFinal20180412084401_dbModel.Store.Talents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Logins">
+        <PropertyRef Name="Login_ID" />
+      </Principal>
+      <Dependent Role="Talents">
+        <PropertyRef Name="LoginLogin_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FamilyMemberAddress_Addresses">
+    <End Role="Addresses" Type="CapstoneFinal20180412084401_dbModel.Store.Addresses" Multiplicity="1" />
+    <End Role="FamilyMemberAddress" Type="CapstoneFinal20180412084401_dbModel.Store.FamilyMemberAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Addresses">
+        <PropertyRef Name="PKAddress_ID" />
+      </Principal>
+      <Dependent Role="FamilyMemberAddress">
+        <PropertyRef Name="Addresses_PKAddress_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FamilyMemberAddress_FamilyMembers">
+    <End Role="FamilyMemberAddress" Type="CapstoneFinal20180412084401_dbModel.Store.FamilyMemberAddress" Multiplicity="*" />
+    <End Role="FamilyMembers" Type="CapstoneFinal20180412084401_dbModel.Store.FamilyMembers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="FamilyMembers">
+        <PropertyRef Name="PK_FM_ID" />
+      </Principal>
+      <Dependent Role="FamilyMemberAddress">
+        <PropertyRef Name="FamilyMembers_PK_FM_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TalentAddress_Addresses">
+    <End Role="Addresses" Type="CapstoneFinal20180412084401_dbModel.Store.Addresses" Multiplicity="1" />
+    <End Role="TalentAddress" Type="CapstoneFinal20180412084401_dbModel.Store.TalentAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Addresses">
+        <PropertyRef Name="PKAddress_ID" />
+      </Principal>
+      <Dependent Role="TalentAddress">
+        <PropertyRef Name="Addresses_PKAddress_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TalentAddress_Talents">
+    <End Role="TalentAddress" Type="CapstoneFinal20180412084401_dbModel.Store.TalentAddress" Multiplicity="*" />
+    <End Role="Talents" Type="CapstoneFinal20180412084401_dbModel.Store.Talents" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Talents">
+        <PropertyRef Name="PKTalent_ID" />
+      </Principal>
+      <Dependent Role="TalentAddress">
+        <PropertyRef Name="Talents_PKTalent_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CapstoneFinal20180412084401_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="PKAddress_ID" />
+          </Key>
+          <Property Name="PKAddress_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MailingAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HomeAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="FamilyMembers" Relationship="Self.FamilyMemberAddress" FromRole="Addresses" ToRole="FamilyMembers" />
+          <NavigationProperty Name="Talents" Relationship="Self.TalentAddress" FromRole="Addresses" ToRole="Talents" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="PKAmin_ID" />
+          </Key>
+          <Property Name="PKAmin_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginLogin_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CastingDirectors" Relationship="Self.FK_AdminCastingDirector" FromRole="Admins" ToRole="CastingDirectors" />
+          <NavigationProperty Name="Login" Relationship="Self.FK_LoginAdmin" FromRole="Admins" ToRole="Logins" />
+        </EntityType>
+        <EntityType Name="CastingDirector">
+          <Key>
+            <PropertyRef Name="PKCD_ID" />
+          </Key>
+          <Property Name="PKCD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminPKAmin_ID" Type="Int32" Nullable="false" />
+          <Property Name="LoginLogin_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Admin" Relationship="Self.FK_AdminCastingDirector" FromRole="CastingDirectors" ToRole="Admins" />
+          <NavigationProperty Name="Login" Relationship="Self.FK_LoginCastingDirector" FromRole="CastingDirectors" ToRole="Logins" />
+        </EntityType>
+        <EntityType Name="FamilyMember">
+          <Key>
+            <PropertyRef Name="PK_FM_ID" />
+          </Key>
+          <Property Name="PK_FM_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HomePhoneNum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CellPhoneNum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BirthDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Weight" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Height" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EyeColor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HairColor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UnionStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SIN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Addresses" Relationship="Self.FamilyMemberAddress" FromRole="FamilyMembers" ToRole="Addresses" />
+          <Property Name="EthinicOriginPK_EO_ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="Login_ID" />
+          </Key>
+          <Property Name="Login_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Admins" Relationship="Self.FK_LoginAdmin" FromRole="Logins" ToRole="Admins" />
+          <NavigationProperty Name="CastingDirectors" Relationship="Self.FK_LoginCastingDirector" FromRole="Logins" ToRole="CastingDirectors" />
+          <NavigationProperty Name="Talents" Relationship="Self.FK_LoginTalent" FromRole="Logins" ToRole="Talents" />
+          <Property Name="ConfirmPassword" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Talent">
+          <Key>
+            <PropertyRef Name="PKTalent_ID" />
+          </Key>
+          <Property Name="PKTalent_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HomePhoneNum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CellPhoneNum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BirthDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Weight" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Height" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EyeColor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HairColor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UnionStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SIN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoginLogin_ID" Nullable="false" Type="Int32" />
+          <Property Name="NumOfRequest" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumOfHired" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Login" Relationship="Self.FK_LoginTalent" FromRole="Talents" ToRole="Logins" />
+          <NavigationProperty Name="Addresses" Relationship="Self.TalentAddress" FromRole="Talents" ToRole="Addresses" />
+          <Property Name="EthinicOrigin" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CarMake" Type="String" Nullable="false" />
+          <Property Name="CarModel" Type="String" Nullable="false" />
+          <Property Name="CarYear" Type="String" Nullable="false" />
+          <Property Name="CarColor" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AdminCastingDirector">
+          <End Role="Admins" Type="Self.Admin" Multiplicity="1" />
+          <End Role="CastingDirectors" Type="Self.CastingDirector" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admins">
+              <PropertyRef Name="PKAmin_ID" />
+            </Principal>
+            <Dependent Role="CastingDirectors">
+              <PropertyRef Name="AdminPKAmin_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoginAdmin">
+          <End Role="Logins" Type="Self.Login" Multiplicity="1" />
+          <End Role="Admins" Type="Self.Admin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Logins">
+              <PropertyRef Name="Login_ID" />
+            </Principal>
+            <Dependent Role="Admins">
+              <PropertyRef Name="LoginLogin_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoginCastingDirector">
+          <End Role="Logins" Type="Self.Login" Multiplicity="1" />
+          <End Role="CastingDirectors" Type="Self.CastingDirector" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Logins">
+              <PropertyRef Name="Login_ID" />
+            </Principal>
+            <Dependent Role="CastingDirectors">
+              <PropertyRef Name="LoginLogin_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoginTalent">
+          <End Role="Logins" Type="Self.Login" Multiplicity="1" />
+          <End Role="Talents" Type="Self.Talent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Logins">
+              <PropertyRef Name="Login_ID" />
+            </Principal>
+            <Dependent Role="Talents">
+              <PropertyRef Name="LoginLogin_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FamilyMemberAddress">
+          <End Role="Addresses" Type="Self.Address" Multiplicity="*" />
+          <End Role="FamilyMembers" Type="Self.FamilyMember" Multiplicity="*" />
+        </Association>
+        <Association Name="TalentAddress">
+          <End Role="Addresses" Type="Self.Address" Multiplicity="*" />
+          <End Role="Talents" Type="Self.Talent" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="CapstoneFinal20180412084401_dbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Addresses" EntityType="Self.Address" />
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="CastingDirectors" EntityType="Self.CastingDirector" />
+          <EntitySet Name="FamilyMembers" EntityType="Self.FamilyMember" />
+          <EntitySet Name="Logins" EntityType="Self.Login" />
+          <EntitySet Name="Talents" EntityType="Self.Talent" />
+          <AssociationSet Name="FK_AdminCastingDirector" Association="Self.FK_AdminCastingDirector">
+            <End Role="Admins" EntitySet="Admins" />
+            <End Role="CastingDirectors" EntitySet="CastingDirectors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoginAdmin" Association="Self.FK_LoginAdmin">
+            <End Role="Logins" EntitySet="Logins" />
+            <End Role="Admins" EntitySet="Admins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoginCastingDirector" Association="Self.FK_LoginCastingDirector">
+            <End Role="Logins" EntitySet="Logins" />
+            <End Role="CastingDirectors" EntitySet="CastingDirectors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoginTalent" Association="Self.FK_LoginTalent">
+            <End Role="Logins" EntitySet="Logins" />
+            <End Role="Talents" EntitySet="Talents" />
+          </AssociationSet>
+          <AssociationSet Name="FamilyMemberAddress" Association="Self.FamilyMemberAddress">
+            <End Role="Addresses" EntitySet="Addresses" />
+            <End Role="FamilyMembers" EntitySet="FamilyMembers" />
+          </AssociationSet>
+          <AssociationSet Name="TalentAddress" Association="Self.TalentAddress">
+            <End Role="Addresses" EntitySet="Addresses" />
+            <End Role="Talents" EntitySet="Talents" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CapstoneFinal20180412084401_dbModelStoreContainer" CdmEntityContainer="CapstoneFinal20180412084401_dbEntities">
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="IsTypeOf(CapstoneFinal20180412084401_dbModel.Address)">
+        <MappingFragment StoreEntitySet="Addresses">
+          <ScalarProperty Name="PKAddress_ID" ColumnName="PKAddress_ID" />
+          <ScalarProperty Name="MailingAddress" ColumnName="MailingAddress" />
+          <ScalarProperty Name="HomeAddress" ColumnName="HomeAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="IsTypeOf(CapstoneFinal20180412084401_dbModel.Admin)">
+        <MappingFragment StoreEntitySet="Admins">
+          <ScalarProperty Name="PKAmin_ID" ColumnName="PKAmin_ID" />
+          <ScalarProperty Name="LoginLogin_ID" ColumnName="LoginLogin_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CastingDirectors">
+      <EntityTypeMapping TypeName="IsTypeOf(CapstoneFinal20180412084401_dbModel.CastingDirector)">
+        <MappingFragment StoreEntitySet="CastingDirectors">
+          <ScalarProperty Name="PKCD_ID" ColumnName="PKCD_ID" />
+          <ScalarProperty Name="AdminPKAmin_ID" ColumnName="AdminPKAmin_ID" />
+          <ScalarProperty Name="LoginLogin_ID" ColumnName="LoginLogin_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FamilyMembers">
+      <EntityTypeMapping TypeName="IsTypeOf(CapstoneFinal20180412084401_dbModel.FamilyMember)">
+        <MappingFragment StoreEntitySet="FamilyMembers">
+          <ScalarProperty Name="PK_FM_ID" ColumnName="PK_FM_ID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="HomePhoneNum" ColumnName="HomePhoneNum" />
+          <ScalarProperty Name="CellPhoneNum" ColumnName="CellPhoneNum" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="EyeColor" ColumnName="EyeColor" />
+          <ScalarProperty Name="HairColor" ColumnName="HairColor" />
+          <ScalarProperty Name="UnionStatus" ColumnName="UnionStatus" />
+          <ScalarProperty Name="SIN" ColumnName="SIN" />
+          <ScalarProperty Name="EthinicOriginPK_EO_ID" ColumnName="EthinicOriginPK_EO_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logins">
+      <EntityTypeMapping TypeName="IsTypeOf(CapstoneFinal20180412084401_dbModel.Login)">
+        <MappingFragment StoreEntitySet="Logins">
+          <ScalarProperty Name="Login_ID" ColumnName="Login_ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Talents">
+      <EntityTypeMapping TypeName="IsTypeOf(CapstoneFinal20180412084401_dbModel.Talent)">
+        <MappingFragment StoreEntitySet="Talents">
+          <ScalarProperty Name="PKTalent_ID" ColumnName="PKTalent_ID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="HomePhoneNum" ColumnName="HomePhoneNum" />
+          <ScalarProperty Name="CellPhoneNum" ColumnName="CellPhoneNum" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="EyeColor" ColumnName="EyeColor" />
+          <ScalarProperty Name="HairColor" ColumnName="HairColor" />
+          <ScalarProperty Name="UnionStatus" ColumnName="UnionStatus" />
+          <ScalarProperty Name="SIN" ColumnName="SIN" />
+          <ScalarProperty Name="LoginLogin_ID" ColumnName="LoginLogin_ID" />
+          <ScalarProperty Name="NumOfRequest" ColumnName="NumOfRequest" />
+          <ScalarProperty Name="NumOfHired" ColumnName="NumOfHired" />
+          <ScalarProperty Name="EthinicOrigin" ColumnName="EthinicOrigin" />
+          <ScalarProperty Name="CarMake" ColumnName="CarMake" />
+          <ScalarProperty Name="CarModel" ColumnName="CarModel" />
+          <ScalarProperty Name="CarYear" ColumnName="CarYear" />
+          <ScalarProperty Name="CarColor" ColumnName="CarColor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FamilyMemberAddress" TypeName="CapstoneFinal20180412084401_dbModel.FamilyMemberAddress" StoreEntitySet="FamilyMemberAddress">
+      <EndProperty Name="Addresses">
+        <ScalarProperty Name="PKAddress_ID" ColumnName="Addresses_PKAddress_ID" />
+      </EndProperty>
+      <EndProperty Name="FamilyMembers">
+        <ScalarProperty Name="PK_FM_ID" ColumnName="FamilyMembers_PK_FM_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TalentAddress" TypeName="CapstoneFinal20180412084401_dbModel.TalentAddress" StoreEntitySet="TalentAddress">
+      <EndProperty Name="Addresses">
+        <ScalarProperty Name="PKAddress_ID" ColumnName="Addresses_PKAddress_ID" />
+      </EndProperty>
+      <EndProperty Name="Talents">
+        <ScalarProperty Name="PKTalent_ID" ColumnName="Talents_PKTalent_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CapstoneFinal20180412084401_dbModelStoreContainer" CdmEntityContainer="CapstoneFinal20180412084401_dbEntities">
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="IsTypeOf(CapstoneFinal20180412084401_dbModel.Address)">
+        <MappingFragment StoreEntitySet="Addresses">
+          <ScalarProperty Name="PKAddress_ID" ColumnName="PKAddress_ID" />
+          <ScalarProperty Name="MailingAddress" ColumnName="MailingAddress" />
+          <ScalarProperty Name="HomeAddress" ColumnName="HomeAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="IsTypeOf(CapstoneFinal20180412084401_dbModel.Admin)">
+        <MappingFragment StoreEntitySet="Admins">
+          <ScalarProperty Name="PKAmin_ID" ColumnName="PKAmin_ID" />
+          <ScalarProperty Name="LoginLogin_ID" ColumnName="LoginLogin_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CastingDirectors">
+      <EntityTypeMapping TypeName="IsTypeOf(CapstoneFinal20180412084401_dbModel.CastingDirector)">
+        <MappingFragment StoreEntitySet="CastingDirectors">
+          <ScalarProperty Name="PKCD_ID" ColumnName="PKCD_ID" />
+          <ScalarProperty Name="AdminPKAmin_ID" ColumnName="AdminPKAmin_ID" />
+          <ScalarProperty Name="LoginLogin_ID" ColumnName="LoginLogin_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FamilyMembers">
+      <EntityTypeMapping TypeName="IsTypeOf(CapstoneFinal20180412084401_dbModel.FamilyMember)">
+        <MappingFragment StoreEntitySet="FamilyMembers">
+          <ScalarProperty Name="PK_FM_ID" ColumnName="PK_FM_ID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="HomePhoneNum" ColumnName="HomePhoneNum" />
+          <ScalarProperty Name="CellPhoneNum" ColumnName="CellPhoneNum" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="EyeColor" ColumnName="EyeColor" />
+          <ScalarProperty Name="HairColor" ColumnName="HairColor" />
+          <ScalarProperty Name="UnionStatus" ColumnName="UnionStatus" />
+          <ScalarProperty Name="SIN" ColumnName="SIN" />
+          <ScalarProperty Name="EthinicOriginPK_EO_ID" ColumnName="EthinicOriginPK_EO_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logins">
+      <EntityTypeMapping TypeName="IsTypeOf(CapstoneFinal20180412084401_dbModel.Login)">
+        <MappingFragment StoreEntitySet="Logins">
+          <ScalarProperty Name="Login_ID" ColumnName="Login_ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Talents">
+      <EntityTypeMapping TypeName="IsTypeOf(CapstoneFinal20180412084401_dbModel.Talent)">
+        <MappingFragment StoreEntitySet="Talents">
+          <ScalarProperty Name="PKTalent_ID" ColumnName="PKTalent_ID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="HomePhoneNum" ColumnName="HomePhoneNum" />
+          <ScalarProperty Name="CellPhoneNum" ColumnName="CellPhoneNum" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="EyeColor" ColumnName="EyeColor" />
+          <ScalarProperty Name="HairColor" ColumnName="HairColor" />
+          <ScalarProperty Name="UnionStatus" ColumnName="UnionStatus" />
+          <ScalarProperty Name="SIN" ColumnName="SIN" />
+          <ScalarProperty Name="LoginLogin_ID" ColumnName="LoginLogin_ID" />
+          <ScalarProperty Name="NumOfRequest" ColumnName="NumOfRequest" />
+          <ScalarProperty Name="NumOfHired" ColumnName="NumOfHired" />
+          <ScalarProperty Name="EthinicOrigin" ColumnName="EthinicOrigin" />
+          <ScalarProperty Name="CarMake" ColumnName="CarMake" />
+          <ScalarProperty Name="CarModel" ColumnName="CarModel" />
+          <ScalarProperty Name="CarYear" ColumnName="CarYear" />
+          <ScalarProperty Name="CarColor" ColumnName="CarColor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FamilyMemberAddress" TypeName="CapstoneFinal20180412084401_dbModel.FamilyMemberAddress" StoreEntitySet="FamilyMemberAddress">
+      <EndProperty Name="Addresses">
+        <ScalarProperty Name="PKAddress_ID" ColumnName="Addresses_PKAddress_ID" />
+      </EndProperty>
+      <EndProperty Name="FamilyMembers">
+        <ScalarProperty Name="PK_FM_ID" ColumnName="FamilyMembers_PK_FM_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TalentAddress" TypeName="CapstoneFinal20180412084401_dbModel.TalentAddress" StoreEntitySet="TalentAddress">
+      <EndProperty Name="Addresses">
+        <ScalarProperty Name="PKAddress_ID" ColumnName="Addresses_PKAddress_ID" />
+      </EndProperty>
+      <EndProperty Name="Talents">
+        <ScalarProperty Name="PKTalent_ID" ColumnName="Talents_PKTalent_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

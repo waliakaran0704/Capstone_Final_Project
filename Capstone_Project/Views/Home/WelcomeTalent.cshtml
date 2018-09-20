@@ -1,0 +1,131 @@
+﻿@using Capstone_Project.Models;
+<link href="@Url.Content("~/Css.css")" rel="stylesheet" type="text/css" />
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+
+            <div class="navbar-collapse collapse" id="myNavbar">
+                <ul class="nav navbar-nav" id="user">
+                    <li>@Html.ActionLink("Change Username", "ChangeUsername", "Home")</li>
+                    <li>@Html.ActionLink("Change Password", "ChangePassword", "Home")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="@Url.Action("Login","Home")"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+@{
+    ViewBag.Title = "WelcomeTalent";
+}
+@if (Session["TalentId"] != null)
+
+{
+    var talent = (Talent)TempData["Talent"];
+
+    <h2>Talent Information</h2>
+
+    <div>
+        <dl class="dl-horizontal">
+            <dt style="text-align:left">
+                @Html.Label("First Name")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.FirstName)
+            </dd>
+            <dt style="text-align:left">
+                @Html.Label("Last Name")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.LastName)
+            </dd>
+            <dt style="text-align:left">
+                @Html.Label("Email")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.Email)
+            </dd>
+            <dt style="text-align:left">
+                @Html.Label("Ethinic Origin")
+            </dt>
+
+                <dd>
+                    @Html.Name(talent.EthinicOrigin)
+                </dd>
+                <dt style="text-align:left">
+                    @Html.Label("Eye Color")
+                </dt>
+
+            <dd>
+                @Html.Name(talent.EyeColor)
+            </dd>
+            <dt style="text-align:left">
+                @Html.Label("Hair Color")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.HairColor)
+            </dd>
+            <dt style="text-align:left">
+                @Html.Label("Weight")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.Weight)
+            </dd>
+            <dt style="text-align:left">
+                @Html.Label("Union Status")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.UnionStatus)
+            </dd>
+            <dt style="text-align:left">
+                @Html.Label("Birth Date")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.BirthDate)
+            </dd>
+            <dt style="text-align:left">
+                @Html.Label("Height")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.Height)
+            </dd>
+            <dt style="text-align:left">
+                @Html.Label("Home Phone Number")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.HomePhoneNum)
+            </dd>
+
+            <dt style="text-align:left">
+                @Html.Label("Cell Phone Number")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.CellPhoneNum)
+            </dd>
+            <dt style="text-align:left">
+                @Html.Label("Gender")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.Gender)
+            </dd>
+        </dl>
+        <div>
+            <input type="button" class="btn btn-info" value="Update Info" onclick="location.href='@Url.Action("Create", "Talents")'" />
+        </div>
+    </div>
+}
+
+
+

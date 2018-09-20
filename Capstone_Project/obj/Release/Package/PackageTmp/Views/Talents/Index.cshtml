@@ -1,0 +1,123 @@
+﻿@model IEnumerable<Capstone_Project.Models.Talent>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HomePhoneNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CellPhoneNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Weight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Height)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EyeColor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HairColor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnionStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumOfRequest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumOfHired)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Login.UserName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HomePhoneNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CellPhoneNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirthDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Weight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Height)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EyeColor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HairColor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnionStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumOfRequest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumOfHired)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Login.UserName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PKTalent_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PKTalent_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PKTalent_ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="BonkerCastingWebsite" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\Sem\ 6\\Capstone\ Porject\\Capstone_Project_Walia\\Capstone_Project\\Capstone_Project\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^D:\\Sem\ 6\\Capstone\ Porject\\Capstone_Project_Walia\\Capstone_Project\\Capstone_Project\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="Capstone_Project.Models.CapstoneFinal20180412084401_dbEntities-Web.config Connection String" description="" value="" tags="" />
+  <parameter name="CapstoneFinal20180412084401_dbEntities-Web.config Connection String" description="CapstoneFinal20180412084401_dbEntities Connection String used in web.config by the application to access the database." value="Server=tcp:capstoneproject20180919121913dbserver.database.windows.net,1433;Initial Catalog=CapstoneProject20180919121913_db;Persist Security Info=False;User ID=bhagrikr;Password=Krishsra12345;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Sem\ 6\\Capstone\ Porject\\Capstone_Project_Walia\\Capstone_Project\\Capstone_Project\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CapstoneFinal20180412084401_dbEntities']/@connectionString" />
+  </parameter>
+</parameters>
