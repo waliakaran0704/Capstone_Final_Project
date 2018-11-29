@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="CapstoneFinal20180412084401_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="Capstone_Final_LatestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Address">
     <Key>
       <PropertyRef Name="PKAddress_ID" />
@@ -28,6 +28,8 @@
     <Property Name="LoginLogin_ID" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Admin" Relationship="Self.FK_AdminCastingDirector" FromRole="CastingDirectors" ToRole="Admins" />
     <NavigationProperty Name="Login" Relationship="Self.FK_LoginCastingDirector" FromRole="CastingDirectors" ToRole="Logins" />
+    <Property Name="FirstName" Type="String" Nullable="false" />
+    <Property Name="LastName" Type="String" Nullable="false" />
   </EntityType>
   <EntityType Name="FamilyMember">
     <Key>
@@ -47,8 +49,8 @@
     <Property Name="HairColor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="UnionStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="SIN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Addresses" Relationship="Self.FamilyMemberAddress" FromRole="FamilyMembers" ToRole="Addresses" />
     <Property Name="EthinicOriginPK_EO_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Addresses" Relationship="Self.FamilyMemberAddress" FromRole="FamilyMembers" ToRole="Addresses" />
   </EntityType>
   <EntityType Name="Login">
     <Key>
@@ -57,10 +59,10 @@
     <Property Name="Login_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ConfirmPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Admins" Relationship="Self.FK_LoginAdmin" FromRole="Logins" ToRole="Admins" />
     <NavigationProperty Name="CastingDirectors" Relationship="Self.FK_LoginCastingDirector" FromRole="Logins" ToRole="CastingDirectors" />
     <NavigationProperty Name="Talents" Relationship="Self.FK_LoginTalent" FromRole="Logins" ToRole="Talents" />
-    <Property Name="ConfirmPassword" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
   </EntityType>
   <EntityType Name="Talent">
     <Key>
@@ -72,24 +74,25 @@
     <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="HomePhoneNum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="CellPhoneNum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="BirthDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BirthDate" Type="String" Nullable="false" />
     <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Weight" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Height" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Weight" Type="Double" Nullable="false" />
+    <Property Name="Height" Type="Double" Nullable="false" />
     <Property Name="EyeColor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="HairColor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="UnionStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="SIN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="LoginLogin_ID" Nullable="false" Type="Int32" />
-    <Property Name="NumOfRequest" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="NumOfHired" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SIN" Type="Double" Nullable="false" />
+    <Property Name="LoginLogin_ID" Type="Int32" Nullable="false" />
+    <Property Name="EthinicOrigin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CarMake" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CarModel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CarYear" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CarColor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Login" Relationship="Self.FK_LoginTalent" FromRole="Talents" ToRole="Logins" />
-    <NavigationProperty Name="Addresses" Relationship="Self.TalentAddress" FromRole="Talents" ToRole="Addresses" />
-    <Property Name="EthinicOrigin" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <Property Name="CarMake" Type="String" Nullable="false" />
-    <Property Name="CarModel" Type="String" Nullable="false" />
-    <Property Name="CarYear" Type="String" Nullable="false" />
-    <Property Name="CarColor" Type="String" Nullable="false" />
+    <Property Name="ResetPaswordCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PostalCode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK_AdminCastingDirector">
     <End Role="Admins" Type="Self.Admin" Multiplicity="1" />
@@ -147,7 +150,7 @@
     <End Role="Addresses" Type="Self.Address" Multiplicity="*" />
     <End Role="Talents" Type="Self.Talent" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="CapstoneFinal20180412084401_dbEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="Capstone_Final_LatestEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Addresses" EntityType="Self.Address" />
     <EntitySet Name="Admins" EntityType="Self.Admin" />
     <EntitySet Name="CastingDirectors" EntityType="Self.CastingDirector" />

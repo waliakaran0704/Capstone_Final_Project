@@ -15,38 +15,53 @@ namespace Capstone_Project.Models
 
     public partial class Talent
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Talent()
-        {
-            this.Addresses = new HashSet<Address>();
-        }
-    
         public int PKTalent_ID { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Required")]
         public string FirstName { get; set; }
+        [Required(ErrorMessage = "Required")]
         public string LastName { get; set; }
+        [Required(ErrorMessage = "Required")]
         public string Email { get; set; }
+        [Required(ErrorMessage = "Required")]
         public string HomePhoneNum { get; set; }
+        [Required(ErrorMessage = "Required")]
         public string CellPhoneNum { get; set; }
+        [Required(ErrorMessage = "Required")]
         public string BirthDate { get; set; }
+        [Required(ErrorMessage = "Required")]
         public string Gender { get; set; }
-        public string Weight { get; set; }
-        public string Height { get; set; }
+        [Required(ErrorMessage = "Required")]
+        public double Weight { get; set; }
+        [Required(ErrorMessage = "Required")]
+        public double Height { get; set; }
+        [Required(ErrorMessage = "Required")]
         public string EyeColor { get; set; }
+        [Required(ErrorMessage = "Required")]
         public string HairColor { get; set; }
+        [Required(ErrorMessage = "Required")]
         public string UnionStatus { get; set; }
-        public string SIN { get; set; }
+        [Required(ErrorMessage = "Required")]
+        public double SIN { get; set; }
+
         public int LoginLogin_ID { get; set; }
-        public string NumOfRequest { get; set; }
-        public string NumOfHired { get; set; }
+        [Required(ErrorMessage = "Required")]
         public string EthinicOrigin { get; set; }
+        [Required(ErrorMessage = "Required")]
         public string CarMake { get; set; }
+        [Required(ErrorMessage = "Required")]
         public string CarModel { get; set; }
+        [Required(ErrorMessage = "Required")]
         public string CarYear { get; set; }
+        [Required(ErrorMessage = "Required")]
         public string CarColor { get; set; }
-    
+
+        public string ResetPaswordCode { get; set; }
+        public string ImagePath { get; set; }
+        [Required(ErrorMessage = "Required")]
+        public string PostalCode { get; set; }
+        [Required(ErrorMessage = "Required")]
+        public string City { get; set; }
+
         public virtual Login Login { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Address> Addresses { get; set; }
     }
 }

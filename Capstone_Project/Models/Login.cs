@@ -22,18 +22,16 @@ namespace Capstone_Project.Models
             this.CastingDirectors = new HashSet<CastingDirector>();
             this.Talents = new HashSet<Talent>();
         }
-    
-        public int Login_ID { get; set; }
 
-        [Required]
-        
+        public int Login_ID { get; set; }
+        [Required(ErrorMessage = "Required")]
         public string UserName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Required")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Admin> Admins { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

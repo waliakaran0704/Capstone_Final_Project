@@ -1,66 +1,92 @@
 ﻿@model Capstone_Project.Models.Login
-<link href="@Url.Content("~/Css.css")" rel="stylesheet" type="text/css" />
-
+@*<link href="@Url.Content("~/Registerstyle/main.css")" rel="stylesheet" type="text/css" />*@
 @{
-    ViewBag.Title = "Register";
+    /**/
+
+    ViewBag.Title = "ForgotPassword";
 }
 
-<p>@ViewBag.test</p>
-
 <div class="navbar navbar-inverse navbar-fixed-top">
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-
-            <div class="navbar-collapse collapse" id="myNavbar">
-                <ul class="nav navbar-nav" id="user"></ul>
-
-            </div>
-        </div>
-    </nav>
+    <ul class="nav navbar-nav" id="user">
+        <li> <img src="~/Images/Company_Logo.PNG" alt="Sample Photo" height="50" /></li>
+    </ul>
 </div>
-<h2>Register</h2>
 
-@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+<style>
+    body {
+        background-color: lightgray;
+    }
+
+    #centered {
+        border-radius: 25px;
+        border: 2px solid #73AD21;
+        background-color: white;
+        width: 450px;
+        height: 350px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+</style>
+
+
+
+@using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
+<div class="form-horizontal" id="centered" role="form">
 
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.Label("Username", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+    <h2 style="text-align:center"><b>Registration Form </b></h2>
+    <br />
+
+    <div class="form-group">
+        <label for="Username" class="col-sm-3 control-label">Username</label>
+        <div class="col-sm-9">
+            @*<input type="text" id="firstName" placeholder="First Name" class="form-control" autofocus>*@
+            <div class="form-group">
+                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control input-l" } })
                 @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
             </div>
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.Label("Password", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+    <div class="form-group">
+        <label for="password" class="col-sm-3 control-label">Password</label>
+        <div class="col-sm-9">
+            @*<input type="text" id="firstName" placeholder="First Name" class="form-control" autofocus>*@
+            <div class="form-group">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control input-l" } })
                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
             </div>
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.Label("Confirm Password", htmlAttributes: new { @class = "control -label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
-                
+    <div class="form-group">
+        <label for="confirmPassword" class="col-sm-3 control-label">Confirm Password    </label>
+        <div class="col-sm-9">
+            @*<input type="text" id="firstName" placeholder="First Name" class="form-control" autofocus>*@
+            <div class="form-group">
+                @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control input-l" } })
                 @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
             </div>
         </div>
+    </div>
+    <p style="color:red;text-align:center">@ViewBag.messageForPass</p>
 
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Signup" class="btn btn-default" />
+    @*<div class="form-group" style="padding-left:100px;padding-top:20px">
+            <div class="ccl-md-offset-2 col-mod-10">
+                <input type="submit" value="Register" class="btn btn-success" style="position:absolute;background-color:lightgreen" />
             </div>
+        </div>*@
+    <div class="form-group" style="padding-left:20%">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Register" class="btn btn-group-lg" style="position:absolute;background-color:lightgreen;width:100px" />
         </div>
     </div>
+</div>
+
+
 }
-
-
-

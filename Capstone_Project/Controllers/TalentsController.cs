@@ -12,7 +12,7 @@ namespace Capstone_Project.Controllers
 {
     public class TalentsController : Controller
     {
-        private CapstoneFinal20180412084401_dbEntities db = new CapstoneFinal20180412084401_dbEntities();
+        private Capstone_Final_LatestEntities1 db = new Capstone_Final_LatestEntities1();
 
         // GET: Talents
         public ActionResult Index()

@@ -1,34 +1,55 @@
 ﻿@using Capstone_Project.Models;
-<link href="@Url.Content("~/Css.css")" rel="stylesheet" type="text/css" />
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
+@*<link href="@Url.Content("~/CoverPhotoStyles/main.css")" rel="stylesheet" type="text/css" />*@
 
-            <div class="navbar-collapse collapse" id="myNavbar">
-                <ul class="nav navbar-nav" id="user">
-                    <li>@Html.ActionLink("Change Username", "ChangeUsername", "Home")</li>
-                    <li>@Html.ActionLink("Change Password", "ChangePassword", "Home")</li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="@Url.Action("Login","Home")"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <ul class="nav navbar-nav" id="user">
+        <li>@Html.ActionLink("Change Username", "ChangeUsername", new { id = Session["LoginId"] })</li>
+        <li>@Html.ActionLink("Change Password", "ChangePassword", new { id = Session["LoginId"] })</li>
+        <li>@Html.ActionLink("Edit Personal Info", "Edit", new { id = Model.PKTalent_ID })</li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li style="padding-right:10px"><a href="@Url.Action("Login","Home")"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+    </ul>
+            
 </div>
+
 @{
     ViewBag.Title = "WelcomeTalent";
 }
+
+<style>
+    body {
+        background-color: lightgray;
+    }
+
+    #makeCenter
+    {
+        position:absolute;
+    }
+
+</style>
+@*<style>
+        .container-fluid well span6 {
+            background-color: aliceblue;
+        }
+    </style>*@
 @if (Session["TalentId"] != null)
 
+
 {
-    var talent = (Talent)TempData["Talent"];
+    var talent = (Talent)Session["Talent"];
 
-    <h2>Talent Information</h2>
-
-    <div>
+    <h2 style="font-family:'Times New Roman', Times, serif;padding-left:90px"><b>Talent Information</b></h2>
+    <div style="padding-left:50px; float:left; width:450px">
+        <img src="@Url.Content("~/Img/"+Model.ImagePath)" style="height:500px;width:400px" />
+    </div>
+    
+    <div class="form-inline" style="float:left;padding-left:50px">
+        
         <dl class="dl-horizontal">
-            <dt style="text-align:left">
+
+            <h3 style="font-size:30px"><b>@talent.FirstName @talent.LastName</b></h3>
+            @*<dt style="text-align:left">
                 @Html.Label("First Name")
             </dt>
 
@@ -41,7 +62,7 @@
 
             <dd>
                 @Html.Name(talent.LastName)
-            </dd>
+            </dd>*@
             <dt style="text-align:left">
                 @Html.Label("Email")
             </dt>
@@ -53,12 +74,12 @@
                 @Html.Label("Ethinic Origin")
             </dt>
 
-                <dd>
-                    @Html.Name(talent.EthinicOrigin)
-                </dd>
-                <dt style="text-align:left">
-                    @Html.Label("Eye Color")
-                </dt>
+            <dd>
+                @Html.Name(talent.EthinicOrigin)
+            </dd>
+            <dt style="text-align:left">
+                @Html.Label("Eye Color")
+            </dt>
 
             <dd>
                 @Html.Name(talent.EyeColor)
@@ -71,11 +92,11 @@
                 @Html.Name(talent.HairColor)
             </dd>
             <dt style="text-align:left">
-                @Html.Label("Weight")
+                @Html.Label("Height")
             </dt>
 
             <dd>
-                @Html.Name(talent.Weight)
+                <p>@talent.Height cm</p>
             </dd>
             <dt style="text-align:left">
                 @Html.Label("Union Status")
@@ -89,15 +110,16 @@
             </dt>
 
             <dd>
-                @Html.Name(talent.BirthDate)
+                <p>@talent.BirthDate</p>
             </dd>
             <dt style="text-align:left">
-                @Html.Label("Height")
+                @Html.Label("Weight")
             </dt>
 
             <dd>
-                @Html.Name(talent.Height)
+                <p>@talent.Weight lbs</p>
             </dd>
+       
             <dt style="text-align:left">
                 @Html.Label("Home Phone Number")
             </dt>
@@ -120,12 +142,49 @@
             <dd>
                 @Html.Name(talent.Gender)
             </dd>
+
+            <dt style="text-align:left">
+                @Html.Label("Car Make")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.CarMake)
+            </dd>
+
+            <dt style="text-align:left">
+                @Html.Label("Car Year")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.CarYear)
+            </dd>
+
+            <dt style="text-align:left">
+                @Html.Label("Car Color")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.CarColor)
+            </dd>
+
+            <dt style="text-align:left">
+                @Html.Label("Car Model")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.CarModel)
+            </dd>
+
         </dl>
-        <div>
-            <input type="button" class="btn btn-info" value="Update Info" onclick="location.href='@Url.Action("Create", "Talents")'" />
-        </div>
-    </div>
-}
+
+        <br />
+        <br />
+        <br />
+        <br />
+</div>
+
+
+        }
 
 
 

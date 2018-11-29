@@ -1,0 +1,148 @@
+﻿@model IEnumerable<Capstone_Project.Models.Talent>
+
+
+<style>
+    body {
+        background-color: lightgray;
+    }
+</style>
+
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <ul class="nav navbar-nav" id="user">
+        <li> <img src="~/Images/Company_Logo.PNG" alt="Sample Photo" height="50" /></li>
+    </ul>
+</div>
+
+
+
+<h2>View All Talents</h2>
+
+@*@Html.ActionLink("Export To PDF", "Reports", new { ReportType = "PDF" })*@
+@Html.ActionLink("Export Data to Pdf file", "PrintViewToPdf")
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.Name("S.No")
+        </th>
+        <th>
+            @Html.Name("First Name")
+        </th>
+        <th>
+            @Html.Name("Last Name")
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.HomePhoneNum)
+        </th>*@
+        <th>
+            @Html.Name("Cell Phone")
+        </th>
+        <th>
+            @Html.Name("Birth Date")
+        </th>
+        <th>
+            @Html.Name("Gender")
+        </th>
+        <th>
+            @Html.Name("Weight")
+        </th>
+        <th>
+            @Html.Name("Height")
+        </th>
+        <th>
+            @Html.Name("Eye Color")
+        </th>
+        <th>
+            @Html.Name("Hair Color")
+        </th>
+        <
+        <th>
+            @Html.Name("Union Status")
+        </th>
+        <th>
+            @Html.Name("Ethinic Origin")
+        </th>
+        <th>
+            @Html.Name("Car Make")
+        </th>
+        <th>
+            @Html.Name("Car Model")
+        </th>
+        <th>
+            @Html.Name("Car Year")
+        </th>>
+        <th>
+            @Html.Name("Car Color")
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PKTalent_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>*@
+            @*<td>
+                @Html.DisplayFor(modelItem => item.HomePhoneNum)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.CellPhoneNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BirthDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Height)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EyeColor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HairColor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnionStatus)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.EthinicOrigin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarMake)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarModel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarColor)
+            </td>
+
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,52 @@
+﻿@using Capstone_Project.Models
+
+@{
+    ViewBag.Title = "WelcomeAdmin";
+}
+
+<style>
+    body {
+        background-color: lightgray;
+    }
+
+    #centered {
+       
+        
+        width: 800px;
+        height: 200px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+</style>
+
+@{
+    var casDir = (CastingDirector)Session["CastingDirector"];
+}
+
+
+<h1 style="text-align:center; font-size:50px; color:darkslateblue"><b>Welcome @casDir.FirstName @casDir.LastName!</b></h1>
+
+<div id="centered" style="margin-top:150px">
+    <img src=~/Images/casting.jpg style="height:500px;width:900px" />
+</div>
+
+
+
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+
+    <ul class="nav navbar-nav" id="user">
+        <li> <img src="~/Images/Company_Logo.PNG" alt="Sample Photo" height="50" /></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Search Talent", "Search", "Home")</li>
+        <li style="padding-right:10px">@Html.ActionLink("Logout", "Login", "Home")</li>
+    </ul>
+
+</div>
+
+<br />

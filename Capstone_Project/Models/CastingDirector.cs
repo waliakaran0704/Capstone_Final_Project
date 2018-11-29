@@ -17,6 +17,8 @@ namespace Capstone_Project.Models
         public int PKCD_ID { get; set; }
         public int AdminPKAmin_ID { get; set; }
         public int LoginLogin_ID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     
         public virtual Admin Admin { get; set; }
         public virtual Login Login { get; set; }

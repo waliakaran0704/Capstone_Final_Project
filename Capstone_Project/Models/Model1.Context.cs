@@ -13,10 +13,10 @@ namespace Capstone_Project.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CapstoneFinal20180412084401_dbEntities : DbContext
+    public partial class Capstone_Final_LatestEntities1 : DbContext
     {
-        public CapstoneFinal20180412084401_dbEntities()
-            : base("name=CapstoneFinal20180412084401_dbEntities")
+        public Capstone_Final_LatestEntities1()
+            : base("name=Capstone_Final_LatestEntities1")
         {
         }
     

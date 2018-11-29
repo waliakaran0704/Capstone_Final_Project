@@ -2,13 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 09/19/2018 17:09:10
--- Generated from EDMX file: D:\Sem 6\Capstone Porject\Capstone_Project_Walia\Capstone_Project\Capstone_Project\Models\Model1.edmx
+-- Date Created: 11/29/2018 15:55:05
+-- Generated from EDMX file: D:\Sem 6\Capstone_Final_Project_Latest\Capstone_Project\Capstone_Project\Models\Model1.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [CapstoneProject20180919121913_db];
+USE [Capstone_Database];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
@@ -94,7 +94,9 @@ GO
 CREATE TABLE [dbo].[CastingDirectors] (
     [PKCD_ID] int IDENTITY(1,1) NOT NULL,
     [AdminPKAmin_ID] int  NOT NULL,
-    [LoginLogin_ID] int  NOT NULL
+    [LoginLogin_ID] int  NOT NULL,
+    [FirstName] nvarchar(max)  NOT NULL,
+    [LastName] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -137,20 +139,22 @@ CREATE TABLE [dbo].[Talents] (
     [CellPhoneNum] nvarchar(max)  NOT NULL,
     [BirthDate] nvarchar(max)  NOT NULL,
     [Gender] nvarchar(max)  NOT NULL,
-    [Weight] nvarchar(max)  NOT NULL,
-    [Height] nvarchar(max)  NOT NULL,
+    [Weight] float  NOT NULL,
+    [Height] float  NOT NULL,
     [EyeColor] nvarchar(max)  NOT NULL,
     [HairColor] nvarchar(max)  NOT NULL,
     [UnionStatus] nvarchar(max)  NOT NULL,
-    [SIN] nvarchar(max)  NOT NULL,
+    [SIN] float  NOT NULL,
     [LoginLogin_ID] int  NOT NULL,
-    [NumOfRequest] nvarchar(max)  NOT NULL,
-    [NumOfHired] nvarchar(max)  NOT NULL,
     [EthinicOrigin] nvarchar(max)  NOT NULL,
     [CarMake] nvarchar(max)  NOT NULL,
     [CarModel] nvarchar(max)  NOT NULL,
     [CarYear] nvarchar(max)  NOT NULL,
-    [CarColor] nvarchar(max)  NOT NULL
+    [CarColor] nvarchar(max)  NOT NULL,
+    [ResetPaswordCode] nvarchar(max)  NULL,
+    [ImagePath] nvarchar(max)  NOT NULL,
+    [PostalCode] nvarchar(max)  NOT NULL,
+    [City] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -163,7 +167,7 @@ GO
 
 -- Creating table 'TalentAddress'
 CREATE TABLE [dbo].[TalentAddress] (
-    [Addresses_PKAddress_ID] int  NOT NULL,
+    [TalentAddress_Talents_PKAddress_ID] int  NOT NULL,
     [Talents_PKTalent_ID] int  NOT NULL
 );
 GO
@@ -214,10 +218,10 @@ ADD CONSTRAINT [PK_FamilyMemberAddress]
     PRIMARY KEY CLUSTERED ([Addresses_PKAddress_ID], [FamilyMembers_PK_FM_ID] ASC);
 GO
 
--- Creating primary key on [Addresses_PKAddress_ID], [Talents_PKTalent_ID] in table 'TalentAddress'
+-- Creating primary key on [TalentAddress_Talents_PKAddress_ID], [Talents_PKTalent_ID] in table 'TalentAddress'
 ALTER TABLE [dbo].[TalentAddress]
 ADD CONSTRAINT [PK_TalentAddress]
-    PRIMARY KEY CLUSTERED ([Addresses_PKAddress_ID], [Talents_PKTalent_ID] ASC);
+    PRIMARY KEY CLUSTERED ([TalentAddress_Talents_PKAddress_ID], [Talents_PKTalent_ID] ASC);
 GO
 
 -- --------------------------------------------------
@@ -308,10 +312,10 @@ ON [dbo].[FamilyMemberAddress]
     ([FamilyMembers_PK_FM_ID]);
 GO
 
--- Creating foreign key on [Addresses_PKAddress_ID] in table 'TalentAddress'
+-- Creating foreign key on [TalentAddress_Talents_PKAddress_ID] in table 'TalentAddress'
 ALTER TABLE [dbo].[TalentAddress]
 ADD CONSTRAINT [FK_TalentAddress_Addresses]
-    FOREIGN KEY ([Addresses_PKAddress_ID])
+    FOREIGN KEY ([TalentAddress_Talents_PKAddress_ID])
     REFERENCES [dbo].[Addresses]
         ([PKAddress_ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;

@@ -1,0 +1,306 @@
+﻿@model Capstone_Project.Models.Talent
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+        <ul class="nav navbar-nav" id="user">
+            <li> <img src="~/Images/Company_Logo.PNG" alt="Sample Photo" height="50" /></li>
+        </ul>
+</div>
+<style>
+    body {
+        background-color: lightgray;
+    }
+
+    .contain {
+        border-radius: 25px;
+        border: 2px solid #73AD21;
+        background-color: white;
+        width: 500px;
+        /*position:absolute;*/
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+</style>
+
+@using (Html.BeginForm("Edit", "Home", FormMethod.Post, new
+{
+    enctype = "multipart/form-data"
+}))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="contain">
+        <form class="form-horizontal" role="form">
+            <h2 style="text-align:center"><b>Edit Information</b></h2>
+            <br />
+            <div class="form-group">
+                <label for="firstName" class="col-sm-3 control-label">First Name</label>
+                <div class="col-sm-9">
+                    @*<input type="text" id="firstName" placeholder="First Name" class="form-control" autofocus>*@
+                    <div class="form-group">
+                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control input-l" } })
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            @Html.HiddenFor(model => model.PKTalent_ID)
+            @Html.HiddenFor(model => model.LoginLogin_ID)
+
+            <div class="form-group">
+                <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+                <div class="col-sm-9">
+                    <div class="form-group">
+                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control input-l" } })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    </div>
+                    @*<input type="text" id="lastName" placeholder="Last Name" class="form-control" autofocus>*@
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-sm-3 control-label">Email</label>
+                <div class="col-sm-9">
+                    <div class="form-group">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control input-l" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                    @*<input type="email" id="email" placeholder="Email" class="form-control" name="email">*@
+                </div>
+            </div>
+
+            @Html.TextBoxFor(model => model.LoginLogin_ID, new { @Value = ViewBag.lastId, @type = "hidden" })
+            @Html.ValidationMessageFor(model => model.LoginLogin_ID, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                <label for="password" class="col-sm-3 control-label">Home Phone Number</label>
+                <div class="col-sm-9">
+                    <div class="form-group">
+                        @Html.EditorFor(model => model.HomePhoneNum, new { htmlAttributes = new { @class = "form-control input-l" } })
+                        @Html.ValidationMessageFor(model => model.HomePhoneNum, "", new { @class = "text-danger" })
+                    </div>
+                    @*<input type="password" id="password" placeholder="Password" class="form-control">*@
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-sm-3 control-label">Cell Phone Number</label>
+                <div class="col-sm-9">
+                    <div class="form-group">
+                        @Html.EditorFor(model => model.CellPhoneNum, new { htmlAttributes = new { @class = "form-control input-l" } })
+                        @Html.ValidationMessageFor(model => model.CellPhoneNum, "", new { @class = "text-danger" })
+                    </div>
+                    @*<input type="password" id="password" placeholder="Password" class="form-control">*@
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="birthDate" class="col-sm-3 control-label">SIN Number</label>
+                <div class="col-sm-9">
+                    <div class="form-group">
+                        @Html.EditorFor(model => model.SIN, new { htmlAttributes = new { @class = "form-control input-l" } })
+                        @Html.ValidationMessageFor(model => model.SIN, "", new { @class = "text-danger" })
+                    </div>
+                    @*<input type="date" id="birthDate" class="form-control">*@
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber" class="col-sm-3 control-label">Birth Date </label>
+                <div class="col-sm-9">
+                    <div class="form-group">
+                        @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "form-control input-l", @type = "date" } })
+                        @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
+                    </div>
+                    @*<input type="phoneNumber" id="phoneNumber" placeholder="Phone number" class="form-control">*@
+                    @*<span class="help-block">Your phone number won't be disclosed anywhere </span>*@
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Height" class="col-sm-3 control-label">Height</label>
+                <div class="col-sm-9">
+                    <div class="form-group">
+                        @Html.EditorFor(model => model.Height, new { htmlAttributes = new { @class = "form-control input-l" } })
+                        @Html.ValidationMessageFor(model => model.Height, "", new { @class = "text-danger" })
+                    </div>
+                    @*<input type="number" id="height" placeholder="Please write your height in centimetres" class="form-control">*@
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="weight" class="col-sm-3 control-label">Weight </label>
+                <div class="col-sm-9">
+                    <div class="form-group">
+                        @Html.EditorFor(model => model.Weight, new { htmlAttributes = new { @class = "form-control input-l" } })
+                        @Html.ValidationMessageFor(model => model.Weight, "", new { @class = "text-danger" })
+                    </div>
+                    @*<input type="number" id="weight" placeholder="Please write your weight in kilograms" class="form-control">*@
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="weight" class="col-sm-3 control-label">City </label>
+                <div class="col-sm-9">
+                    <div class="form-group">
+                        @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control input-l" } })
+                        @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                    </div>
+                    @*<input type="number" id="weight" placeholder="Please write your weight in kilograms" class="form-control">*@
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="weight" class="col-sm-3 control-label">Postal Code </label>
+                <div class="col-sm-9">
+                    <div class="form-group">
+                        @Html.EditorFor(model => model.PostalCode, new { htmlAttributes = new { @class = "form-control input-l" } })
+                        @Html.ValidationMessageFor(model => model.PostalCode, "", new { @class = "text-danger" })
+                    </div>
+                    @*<input type="number" id="weight" placeholder="Please write your weight in kilograms" class="form-control">*@
+                </div>
+            </div>
+
+            <br />
+
+            <div class="form-group">
+                <label class="control-label col-sm-3" style="margin-right:15px">Gender</label>
+
+                <div class="form-group">
+                    @Html.DropDownListFor(model => model.Gender, new List<SelectListItem>
+                             {
+                                new SelectListItem{ Text="Male", Value = "Male" },
+                                new SelectListItem{ Text="Female", Value = "Female" },
+                                new SelectListItem{ Text="Other", Value = "Other" }
+                             }, htmlAttributes: new { @class = "form-control input-l"})
+                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+
+
+                </div>
+            </div> <!-- /.form-group -->
+
+
+            <div class="form-group">
+                <label class="control-label col-sm-3" style="margin-right:15px">Eye Color</label>
+                <div class="form-group">
+                    @Html.DropDownListFor(model => model.EyeColor, new List<SelectListItem>
+                             {
+                                        new SelectListItem{ Text="Blue", Value = "Blue" },
+                                        new SelectListItem{ Text="Brown", Value = "Brown" },
+                                        new SelectListItem{ Text="Green", Value = "Green" },
+                                        new SelectListItem{ Text="Grey", Value = "Grey" }
+                             }, htmlAttributes: new { @class = "form-control input - l"})
+                    @Html.ValidationMessageFor(model => model.EyeColor, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-3" style="margin-right:15px">Hair Color</label>
+                <div class="form-group">
+                    @Html.DropDownListFor(model => model.HairColor, new List<SelectListItem>
+                             {
+                                        new SelectListItem{ Text="Bald", Value = "Bald" },
+                                            new SelectListItem{ Text="Blonde", Value = "Blonde" },
+                                            new SelectListItem{ Text="Brown", Value = "Brown" },
+                                            new SelectListItem{ Text="Black", Value = "Black" },
+                                            new SelectListItem{ Text="Dreds", Value = "Dreds" },
+                                            new SelectListItem{ Text="Red", Value = "Red" },
+                                            new SelectListItem{ Text="Grey", Value = "Grey" },
+                                            new SelectListItem{ Text="White", Value = "White" }
+                             }, htmlAttributes: new { @class = "form-control input - l" })
+                    @Html.ValidationMessageFor(model => model.HairColor, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-3" style="margin-right:15px">Union Status</label>
+                <div class="form-group">
+                    @Html.DropDownListFor(model => model.UnionStatus, new List<SelectListItem>
+                             {
+                                         new SelectListItem{ Text="Full", Value = "Full" },
+                                            new SelectListItem{ Text="Apprentice", Value = "Apprentice" },
+                                            new SelectListItem{ Text="AABP", Value = "AABP" },
+                                            new SelectListItem{ Text="Non-Union", Value = "Non-Union" }
+                             }, htmlAttributes: new { @class = "form-control input - l" })
+                    @Html.ValidationMessageFor(model => model.UnionStatus, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-3" style="margin-right:15px">Ethinic Origin</label>
+                <div class="form-group" style="padding-left:0px">
+                    @Html.DropDownListFor(model => model.EthinicOrigin, new List<SelectListItem>
+                             {
+                                        new SelectListItem{ Text="Caucasian", Value = "Caucasian" },
+                                            new SelectListItem{ Text="Black", Value = "Black" },
+                                            new SelectListItem{ Text="Asian", Value = "Asian" },
+                                            new SelectListItem{ Text="Indian", Value = "Indian" },
+                                            new SelectListItem{ Text="Latino", Value = "Latino" },
+                                            new SelectListItem{ Text="Mid-East", Value = "Mid-East" },
+                                            new SelectListItem{ Text="First Nation", Value = "First Nation" }
+                             }, htmlAttributes: new { @class = "form-control input - l" })
+                    @Html.ValidationMessageFor(model => model.EthinicOrigin, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="weight" class="col-sm-3 control-label">Car Make</label>
+                <div class="col-sm-9">
+                    <div class="form-group">
+                        @Html.EditorFor(model => model.CarMake, new { htmlAttributes = new { @class = "form-control input-l" } })
+                        @Html.ValidationMessageFor(model => model.CarMake, "", new { @class = "text-danger" })
+                    </div>
+                    @*<input type="number" id="weight" placeholder="Please write your weight in kilograms" class="form-control">*@
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="weight" class="col-sm-3 control-label">Car Model</label>
+                <div class="col-sm-9">
+                    <div class="form-group">
+                        @Html.EditorFor(model => model.CarModel, new { htmlAttributes = new { @class = "form-control input-l" } })
+                        @Html.ValidationMessageFor(model => model.CarModel, "", new { @class = "text-danger" })
+                    </div>
+                    @*<input type="number" id="weight" placeholder="Please write your weight in kilograms" class="form-control">*@
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="weight" class="col-sm-3 control-label">Car Year</label>
+                <div class="col-sm-9">
+                    <div class="form-group">
+                        @Html.EditorFor(model => model.CarYear, new { htmlAttributes = new { @class = "form-control input-l" } })
+                        @Html.ValidationMessageFor(model => model.CarYear, "", new { @class = "text-danger" })
+                    </div>
+                    @*<input type="number" id="weight" placeholder="Please write your weight in kilograms" class="form-control">*@
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="weight" class="col-sm-3 control-label">Car Color</label>
+                <div class="col-sm-9">
+                    <div class="form-group">
+                        @Html.EditorFor(model => model.CarColor, new { htmlAttributes = new { @class = "form-control input-l" } })
+                        @Html.ValidationMessageFor(model => model.CarColor, "", new { @class = "text-danger" })
+                    </div>
+                    @*<input type="number" id="weight" placeholder="Please write your weight in kilograms" class="form-control">*@
+                </div>
+            </div>
+
+            <div class="form-group" style="text-align:left">
+                @Html.Label("Image Upload", htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    <input type="file" name="file" />
+                    @*@Html.ValidationMessageFor(model => model.ImagePath, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Update</button>
+            @*<div class="form-group" style="padding-left:20%">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Update" class="btn btn-group-lg" style="position:absolute;background-color:lightgreen;width:100px" />
+                </div>
+            </div>*@
+
+        </form> <!-- /form -->
+    </div> <!-- ./container -->
+}

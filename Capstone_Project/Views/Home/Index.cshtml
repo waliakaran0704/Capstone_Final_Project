@@ -1,70 +1,92 @@
-﻿<link href="@Url.Content("~/Css.css")" rel="stylesheet" type="text/css" />
+﻿<link href="@Url.Content("~/Csslayout.css")" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
 @{
 
     ViewBag.Title = "Home Page";
 }
+<style>
+    body {
+        background-image: url(https://images.pond5.com/film-projector-lens-and-light-footage-024706786_prevstill.jpeg);
+        background-repeat: no-repeat;
+    }
 
-@*<div class="jumbotron">
-        <h1>Bon.Ker Casting Agency</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
+    header.masthead {
+        color: #fff;
+        background-image: url(https://images.pond5.com/film-projector-lens-and-light-footage-024706786_prevstill.jpeg);
+    }
 
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </div>
-    </div>*@
+        header.masthead .intro-text {
+            padding-top: 150px;
+            padding-bottom: 100px
+        }
 
-<div style="background-color:#404040 !important; color:white" class="jumbotron">
-    <div class="row content">
+            header.masthead .intro-text .intro-lead-in {
+                font-size: 22px;
+                font-style: italic;
+                line-height: 22px;
+                margin-bottom: 25px;
+                font-family: 'Droid Serif',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'
+            }
 
-        <div class="col-sm-8 text-center">
-            <h1>Welcome</h1>
-            <p>
-                Bon.ker Casting is a casting agency for background  talents in GTA. We are in this industry with 10 years of experience.
+            header.masthead .intro-text .intro-heading {
+                font-size: 50px;
+                font-weight: 700;
+                line-height: 50px;
+                margin-bottom: 25px;
+                font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'
+            }
 
-                Bon.ker Casting have diverse  range of age from kids to Grandparents
 
-                Bon.ker Casting has the widest contact with casting directors over GTA with tons of orders  of movies, television , advertisement, etc
-            </p>
-            <hr>
-        </div>
-        <div style="background-color:#404040 !important" class="col-sm-2 sidenav">
+        header.masthead .intro-text {
+            padding-top: 300px;
+            padding-bottom: 200px
+        }
 
-            <div style="text-align:right" class="active">
-                <a href="https://www.pinterest.ca/" target="_blank"><img src="~/Images/pin.PNG" alt="Sample Photo" height="90" /></a>
-            </div>
+            header.masthead .intro-text .intro-lead-in {
+                font-size: 40px;
+                font-style: italic;
+                line-height: 40px;
+                margin-bottom: 25px;
+                font-family: 'Droid Serif',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'
+            }
 
-            <br />
+            header.masthead .intro-text .intro-heading {
+                font-size: 75px;
+                font-weight: 700;
+                line-height: 75px;
+                margin-bottom: 50px;
+                font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'
+            }
+</style>
 
-            <div style="text-align:right" class="active">
-                <a href="https://mail.google.com/mail/u/0/" target="_blank"><img src="~/Images/gmail.PNG" alt="Sample Photo" height="70" /></a>
-
-            </div>
-
-            <br />
-
-            <div style="text-align:right" class="active">
-                <a href="https://www.facebook.com/" target="_blank"><img src="~/Images/fb.PNG" alt="Sample Photo" height="90" /></a>
-
-            </div>
-        </div>
-    </div>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    
+    <ul class="nav navbar-nav navbar-left">
+        <li> <img src="~/Images/Company_Logo.PNG" alt="Sample Photo" height="50" /></li>
+        <li>@Html.ActionLink("About", "About", "Home")</li>
+        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    </ul>
+                
+    <ul class="nav navbar-nav navbar-right">
+         <li style="padding-right:10px"><a href="@Url.Action("Login","Home")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+     
 </div>
+
+<header class="masthead">
+    <div class="container">
+        <div class="intro-text">
+            <div class="intro-lead-in">Welcome To Our Studio!</div>
+            <div class="intro-heading text-uppercase">It's Nice To Meet You</div>
+            <a class="btn btn-primary btn-lg text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+        </div>
+    </div>
+</header>
+
+
+
+

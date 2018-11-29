@@ -1,0 +1,182 @@
+﻿@model Capstone_Project.Models.Talent
+<link href="@Url.Content("~/CoverPhotoStyles/main.css")" rel="stylesheet" type="text/css" />
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <ul class="nav navbar-nav" id="user">
+        @*<li> <img src="~/Images/Company_Logo.PNG" alt="Sample Photo" height="50" /></li>*@
+    </ul>
+</div>
+
+@{
+    ViewBag.Title = "WelcomeTalent";
+}
+
+<style>
+    body {
+        background-color: lightgray;
+    }
+
+    #makeCenter {
+        position: absolute;
+    }
+</style>
+@*<style>
+        .container-fluid well span6 {
+            background-color: aliceblue;
+        }
+    </style>*@
+@{
+    var talent = Model;
+}
+
+  
+
+    <h2 style="font-family:'Times New Roman', Times, serif;padding-left:90px"><b>Talent Information</b></h2>
+    <div>
+
+    </div>
+    <div id="makeCenter" style="padding-left:500px">
+        <img src="@Url.Content("~/Img/"+Model.ImagePath)" style="height:500px;width:400px" />
+    </div>
+
+    <div style="position:absolute;left:100px">
+        <br />
+        <br />
+        <dl class="dl-horizontal">
+
+            <dt style="text-align:left">
+                @Html.Label("First Name")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.FirstName)
+            </dd>
+            <dt style="text-align:left">
+                @Html.Label("Last Name")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.LastName)
+            </dd>
+            <dt style="text-align:left">
+                @Html.Label("Email")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.Email)
+            </dd>
+            <dt style="text-align:left">
+                @Html.Label("Ethinic Origin")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.EthinicOrigin)
+            </dd>
+            <dt style="text-align:left">
+                @Html.Label("Eye Color")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.EyeColor)
+            </dd>
+            <dt style="text-align:left">
+                @Html.Label("Hair Color")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.HairColor)
+            </dd>
+            <dt style="text-align:left">
+                @Html.Label("Height")
+            </dt>
+
+            <dd>
+                <p>@talent.Height cm</p>
+            </dd>
+            <dt style="text-align:left">
+                @Html.Label("Union Status")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.UnionStatus)
+            </dd>
+            <dt style="text-align:left">
+                @Html.Label("Birth Date")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.BirthDate)
+            </dd>
+            <dt style="text-align:left">
+                @Html.Label("Weight")
+            </dt>
+
+            <dd>
+                <p>@talent.Weight lbs</p>
+            </dd>
+            <dt style="text-align:left">
+                @Html.Label("Home Phone Number")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.HomePhoneNum)
+            </dd>
+
+            <dt style="text-align:left">
+                @Html.Label("Cell Phone Number")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.CellPhoneNum)
+            </dd>
+            <dt style="text-align:left">
+                @Html.Label("Gender")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.Gender)
+            </dd>
+
+            <dt style="text-align:left">
+                @Html.Label("Car Make")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.CarMake)
+            </dd>
+
+            <dt style="text-align:left">
+                @Html.Label("Car Year")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.CarYear)
+            </dd>
+
+            <dt style="text-align:left">
+                @Html.Label("Car Color")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.CarColor)
+            </dd>
+
+            <dt style="text-align:left">
+                @Html.Label("Car Model")
+            </dt>
+
+            <dd>
+                @Html.Name(talent.CarModel)
+            </dd>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+</div>
+
+
+
+
+
+

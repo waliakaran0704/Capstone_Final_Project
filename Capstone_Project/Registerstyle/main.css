@@ -1,0 +1,27 @@
+﻿/*Register Style*/
+
+body {
+
+    /*background-image: url('http://mdbootstrap.com/img/Photos/Others/images/91.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;*/
+    background-color: #e9ebee;
+
+}
+
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+
+.card {
+    background-color: rgba(126, 123, 215, 0.2);
+}
+
+.md-form label {
+    color: #ffffff;
+}
+.input-group-addon {
+    background-color: rgb(50, 118, 177);
+    border-color: rgb(40, 94, 142);
+    color: rgb(255, 255, 255);
+}
